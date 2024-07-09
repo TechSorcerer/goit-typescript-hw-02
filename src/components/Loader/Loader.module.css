@@ -1,0 +1,9 @@
+body {
+  position: relative;
+}
+
+.loader {
+  position: absolute;
+  top: 400px;
+  left: 50%;
+}

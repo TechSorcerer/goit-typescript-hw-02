@@ -1,0 +1,44 @@
+.header {
+  /* background-image: url(https://kartinki.pics/uploads/posts/2021-07/1626799696_23-kartinkin-com-p-fon-s-malenkimi-znachkami-krasivo-26.jpg);
+  background-size: cover; */
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.inputCont {
+  display: inline-block;
+  position: relative;
+}
+
+.inputCont .input {
+  width: 300px;
+  padding: 10px;
+  margin: 5px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  font-size: 16px;
+  background-color: #fff;
+  outline: none;
+}
+
+.inputCont .searchBtn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #949393;
+  background-color: #ffffff;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.inputCont .searchBtn:hover {
+  background-color: #000000;
+  color: #fff;
+}
