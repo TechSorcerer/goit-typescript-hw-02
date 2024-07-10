@@ -1,13 +1,18 @@
 import styles from "./ImageModal.module.css";
 import Modal from "react-modal";
 import { useEffect } from "react";
-import PropTypes from "prop-types";
+import { Image } from "../../types";
 
 Modal.setAppElement("#root");
 
-const ImageModal = ({ image, onClose }) => {
+interface ImageModalProps {
+  image: Image;
+  onClose: () => void;
+}
+
+const ImageModal: React.FC<ImageModalProps> = ({ image, onClose }) => {
   useEffect(() => {
-    const handleKeyDown = (event) => {
+    const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         onClose();
       }
@@ -37,26 +42,12 @@ const ImageModal = ({ image, onClose }) => {
         className={styles.modalImage}
       />
       <div className={styles.modalInfo}>
-        <p>Photo by {user.name}</p>
+        {user?.name && <p>Photo by {user.name}</p>}
         <p>{likes} likes</p>
         {alt_description && <p>{alt_description}</p>}
       </div>
     </Modal>
   );
-};
-
-ImageModal.propTypes = {
-  image: PropTypes.shape({
-    urls: PropTypes.shape({
-      regular: PropTypes.string.isRequired,
-    }).isRequired,
-    alt_description: PropTypes.string.isRequired,
-    user: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-    }).isRequired,
-    likes: PropTypes.number.isRequired,
-  }),
-  onClose: PropTypes.func.isRequired,
 };
 
 export default ImageModal;

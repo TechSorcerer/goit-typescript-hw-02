@@ -8,14 +8,15 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "./components/ImageModal/ImageModal";
 import { Toaster } from "react-hot-toast";
 import "./App.css";
+import { Image } from "./types";
 
-const App = () => {
-  const [images, setImages] = useState([]);
-  const [query, setQuery] = useState("");
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+const App: React.FC = () => {
+  const [images, setImages] = useState<Image[]>([]);
+  const [query, setQuery] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<Image | null>(null);
 
   const ACCESS_KEY = "hrhTGiWjgENt6WmL1RYlbphzyp2-XdAkyLiu6fKt1JA";
 
@@ -53,7 +54,7 @@ const App = () => {
     }
   }, [query, page]);
 
-  const handleSearchSubmit = (searchTerm) => {
+  const handleSearchSubmit = (searchTerm: string) => {
     setQuery(searchTerm);
     setImages([]);
     setPage(1);
@@ -63,7 +64,7 @@ const App = () => {
     setPage((prevPage) => prevPage + 1);
   };
 
-  const handleImageClick = (image) => {
+  const handleImageClick = (image: Image) => {
     setSelectedImage(image);
   };
 
