@@ -12,3 +12,7 @@ export interface Image {
   user?: User;
   likes?: number;
 }
+
+export interface ApiResponse {
+  results: Image[];
+}

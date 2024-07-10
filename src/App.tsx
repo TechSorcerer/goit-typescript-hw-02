@@ -8,7 +8,7 @@ import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "./components/ImageModal/ImageModal";
 import { Toaster } from "react-hot-toast";
 import "./App.css";
-import { Image } from "./types";
+import { ApiResponse, Image } from "./types";
 
 const App: React.FC = () => {
   const [images, setImages] = useState<Image[]>([]);
@@ -26,7 +26,7 @@ const App: React.FC = () => {
       setError(null);
 
       try {
-        const response = await axios.get(
+        const response = await axios.get<ApiResponse>(
           `https://api.unsplash.com/search/photos`,
           {
             params: {
